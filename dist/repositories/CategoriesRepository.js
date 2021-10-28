@@ -19,6 +19,10 @@ var CategoriesRepository = /** @class */ (function () {
     CategoriesRepository.prototype.list = function () {
         return this.categories;
     };
+    CategoriesRepository.prototype.findByName = function (name) {
+        var category = this.categories.find(function (category) { return category.name === name; });
+        return category;
+    };
     return CategoriesRepository;
 }());
 exports.CategoriesRepository = CategoriesRepository;
