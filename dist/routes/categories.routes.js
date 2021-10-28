@@ -11,3 +11,7 @@ categoriesRoutes.post("/", function (request, response) {
     categoriesRepository.create({ name: name, description: description });
     return response.status(201).send();
 });
+categoriesRoutes.get("/", function (request, response) {
+    var all = categoriesRepository.list();
+    return response.status(200).json(all);
+});

@@ -16,6 +16,9 @@ var CategoriesRepository = /** @class */ (function () {
         });
         this.categories.push(category);
     };
+    CategoriesRepository.prototype.list = function () {
+        return this.categories;
+    };
     return CategoriesRepository;
 }());
 exports.CategoriesRepository = CategoriesRepository;
