@@ -8,6 +8,12 @@ exports.categoriesRoutes = categoriesRoutes;
 var categoriesRepository = new CategoriesRepository_1.CategoriesRepository();
 categoriesRoutes.post("/", function (request, response) {
     var _a = request.body, name = _a.name, description = _a.description;
+    var categoryAlreadyExists = categoriesRepository.findByName(name);
+    if (categoryAlreadyExists) {
+        return response
+            .status(400)
+            .json({ error: "Category already exists! " });
+    }
     categoriesRepository.create({ name: name, description: description });
     return response.status(201).send();
 });
